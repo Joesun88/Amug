@@ -258,12 +258,17 @@ roughnessSlider.addEventListener("input", e => {
   roughnessValue.textContent = val.toFixed(2);
 });
 
+// 假設第2個物件的材質變數為 material2
+material2.transparent = true;
+material2.opacity = 0.6; // 數值可依需求調整 (例如 0.6 代表 60% 不透明)
+material2.needsUpdate = true;
+
 /* 模型載入後套用全方位四方均勻補光材質優化 */
 mv.addEventListener("load", () => {
   mv.model.materials.forEach(mat => {
     const pbr = mat.pbrMetallicRoughness;
-    pbr.setMetallicFactor(0.95);
-    pbr.setRoughnessFactor(0.04);
+    pbr.setMetallicFactor(0.09);
+    pbr.setRoughnessFactor(0.22);
   });
 });
 </script>
